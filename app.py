@@ -9,8 +9,11 @@ app = Flask(__name__)
 UPLOAD_FOLDER = '\OCRfile'  # 修改为你希望保存文件的路径
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-AZURE_API_ENDPOINT = "https://faxformrecoginzer.cognitiveservices.azure.com/"
-AZURE_API_KEY = "9ab7cca139354de19484d263e5b4e603"  # 替换为你的 Azure API 密钥
+# Load environment variables
+
+# Retrieve and validate environment variables
+AZURE_API_ENDPOINT = os.getenv("AZURE_FORM_RECOGNIZER_ENDPOINT")
+AZURE_API_KEY = os.getenv("AZURE_FORM_RECOGNIZER_KEY")
 
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
