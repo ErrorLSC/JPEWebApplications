@@ -12,8 +12,8 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 # Load environment variables
 
 # Retrieve and validate environment variables
-AZURE_API_ENDPOINT = os.getenv("AZURE_FORM_RECOGNIZER_ENDPOINT")
-AZURE_API_KEY = os.getenv("AZURE_FORM_RECOGNIZER_KEY")
+AZURE_FORM_RECOGNIZER_ENDPOINT = os.getenv("AZURE_FORM_RECOGNIZER_ENDPOINT")
+AZURE_FORM_RECOGNIZER_KEY = os.getenv("AZURE_FORM_RECOGNIZER_KEY")
 
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
@@ -57,7 +57,7 @@ def upload_file():
         filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(filepath)
         try:
-            result = AzureOCR(filepath, AZURE_API_ENDPOINT, AZURE_API_KEY)
+            result = AzureOCR(filepath, AZURE_FORM_RECOGNIZER_ENDPOINT, AZURE_FORM_RECOGNIZER_KEY)
         except Exception as e:
             return f"Azure OCR error: {str(e)}"
 
