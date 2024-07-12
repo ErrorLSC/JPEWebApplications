@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Azure OCR Service</title>
+    <link rel="stylesheet" href="static/styles.css">
 </head>
 <body>
-    <h1>Upload a File(pdf,jpeg,png)</h1>
-    <form action="/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="file" id="file">
-        <button type="submit">Submit</button>
-    </form>
+    <div class="container">
+        <h1>Upload a File (PDF, JPEG, PNG)</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" id="file" class="file-input">
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
 </body>
 </html>
